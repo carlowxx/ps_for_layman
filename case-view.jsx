@@ -178,47 +178,50 @@ function StepList({ steps, babyVersion, childVersion, patientType, onPatientChan
         </div>
       )}
 
-      {isStringSteps ? (
-        <div className="checklist">
-          <div className="checklist__list">
-            {activeSteps.map((s, i) => (
-              <div key={i} className="check-row" style={{cursor: "default"}}>
-                <div style={{
-                  width: 22, height: 22, borderRadius: 6, background: "var(--blue-soft)", color: "var(--blue-ink)",
-                  display: "grid", placeItems: "center", fontSize: 12, fontWeight: 700, flexShrink: 0
-                }}>{i + 1}</div>
-                <div className="check-row__txt">{s}</div>
+      <div key={who} className="step-panel-anim">
+        {isStringSteps ? (
+          <div className="checklist">
+            <div className="checklist__list">
+              {activeSteps.map((s, i) => (
+                <div key={i} className="check-row" style={{cursor: "default"}}>
+                  <div style={{
+                    width: 22, height: 22, borderRadius: 6, background: "var(--blue-soft)", color: "var(--blue-ink)",
+                    display: "grid", placeItems: "center", fontSize: 12, fontWeight: 700, flexShrink: 0
+                  }}>{i + 1}</div>
+                  <div className="check-row__txt">{s}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ) : (
+          <div className="step-list">
+            {activeSteps.map((step, i) => (
+              <div className={"step-card" + (checked[i] ? " step-card--done" : "")} key={i}
+                style={{animationDelay: (i * 0.06) + "s"}}>
+                <div className="step-card__num">PASSO {String(i + 1).padStart(2, "0")}</div>
+                <h3 className="step-card__title">{step.title}</h3>
+                <div className="step-card__body"><p>{step.body}</p></div>
+                {step.hint && (
+                  <div className="step-card__hint">
+                    <Icon.Info />
+                    <div>{step.hint}</div>
+                  </div>
+                )}
+                <label
+                  className={"check-row " + (checked[i] ? "check-row--done" : "")}
+                  onClick={() => toggle(i)}
+                  style={{marginTop: 16, cursor: "pointer"}}
+                >
+                  <div className="check-row__box">
+                    {checked[i] && <Icon.Check />}
+                  </div>
+                  <div className="check-row__txt">Feito — passo concluído</div>
+                </label>
               </div>
             ))}
           </div>
-        </div>
-      ) : (
-        <div className="step-list">
-          {activeSteps.map((step, i) => (
-            <div className={"step-card" + (checked[i] ? " step-card--done" : "")} key={who + "-" + i}>
-              <div className="step-card__num">PASSO {String(i + 1).padStart(2, "0")}</div>
-              <h3 className="step-card__title">{step.title}</h3>
-              <div className="step-card__body"><p>{step.body}</p></div>
-              {step.hint && (
-                <div className="step-card__hint">
-                  <Icon.Info />
-                  <div>{step.hint}</div>
-                </div>
-              )}
-              <label
-                className={"check-row " + (checked[i] ? "check-row--done" : "")}
-                onClick={() => toggle(i)}
-                style={{marginTop: 16, cursor: "pointer"}}
-              >
-                <div className="check-row__box">
-                  {checked[i] && <Icon.Check />}
-                </div>
-                <div className="check-row__txt">Feito — passo concluído</div>
-              </label>
-            </div>
-          ))}
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 }

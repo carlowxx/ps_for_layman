@@ -72,6 +72,20 @@
   --shadow-pop: 0 12px 40px oklch(0.7 0.18 28 / 0.35);
 }
 
+/* ===== Page & element transitions ===== */
+@keyframes pageEnter {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
 body {
@@ -234,6 +248,7 @@ input, textarea { font-family: inherit; color: inherit; }
   max-width: var(--maxw);
   margin: 0 auto;
   padding: 72px 24px 160px;
+  animation: pageEnter 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 .hero {
   display: grid;
@@ -345,6 +360,7 @@ input, textarea { font-family: inherit; color: inherit; }
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: 18px;
+  animation: fadeUp 0.45s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
 }
 .case-card {
   background: var(--surface);
@@ -541,6 +557,7 @@ input, textarea { font-family: inherit; color: inherit; }
   max-width: 860px;
   margin: 0 auto;
   padding: 56px 24px 180px;
+  animation: pageEnter 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 .crumb {
   display: flex;
@@ -558,6 +575,7 @@ input, textarea { font-family: inherit; color: inherit; }
   display: grid;
   gap: 18px;
   margin-bottom: 36px;
+  animation: fadeUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.05s both;
 }
 .case-hero__tag {
   display: inline-flex;
@@ -648,10 +666,16 @@ input, textarea { font-family: inherit; color: inherit; }
 
 /* ===== Step list (all steps visible) ===== */
 .case-content { display: grid; gap: 0; }
+.step-panel-anim {
+  animation: fadeUp 0.32s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
 .step-list {
   display: flex;
   flex-direction: column;
   gap: 36px;
+}
+.step-card {
+  animation: fadeUp 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 /* ===== Step content ===== */
@@ -743,6 +767,7 @@ input, textarea { font-family: inherit; color: inherit; }
   border-radius: var(--radius-xl);
   padding: 36px;
   text-align: center;
+  animation: fadeUp 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 .branch__q {
   font-size: 28px;
@@ -985,18 +1010,22 @@ input, textarea { font-family: inherit; color: inherit; }
   margin-top: 2px;
 }
 .rcp-timer__beat {
-  width: 130px; height: 130px;
-  margin: 20px auto;
+  width: 164px; height: 164px;
+  margin: 24px auto;
   border-radius: 50%;
   background: var(--red);
   display: grid;
   place-items: center;
   color: white;
   font-family: var(--ff-display);
-  font-size: 28px;
-  font-weight: 700;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
   position: relative;
   transition: transform 0.1s;
+  padding: 16px;
+  text-align: center;
+  line-height: 1.1;
 }
 .rcp-timer__beat--active { animation: thump 0.5217s infinite; }
 @keyframes thump {
@@ -1145,7 +1174,13 @@ input, textarea { font-family: inherit; color: inherit; }
   margin-top: 64px;
   padding-top: 56px;
   border-top: 1px solid var(--line);
+  animation: fadeUp 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
+.case-section:nth-child(1) { animation-delay: 0.08s; }
+.case-section:nth-child(2) { animation-delay: 0.14s; }
+.case-section:nth-child(3) { animation-delay: 0.20s; }
+.case-section:nth-child(4) { animation-delay: 0.26s; }
+.case-section:nth-child(5) { animation-delay: 0.32s; }
 .case-section:first-child { border-top: none; padding-top: 0; margin-top: 0; }
 .case-section__head {
   display: flex;

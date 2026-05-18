@@ -66,9 +66,9 @@ function App() {
         onPick={goCase}
       />
       {activeCase ? (
-        <CaseView caseData={activeCase} onBack={goHome} />
+        <CaseView key={activeCase.id} caseData={activeCase} onBack={goHome} />
       ) : (
-        <Home cases={cases} onPick={goCase} />
+        <Home key="home" cases={cases} onPick={goCase} />
       )}
       <SOSFab onClick={() => setSosOpen(true)} />
       <SOSModal open={sosOpen} onClose={() => setSosOpen(false)} />
