@@ -1,6 +1,6 @@
 // Conteúdo de todos os casos de primeiros socorros
-// Cada caso tem: id, name, category, urgency, summary, glyph (placeholder), keywords
-// branches (opcional), steps, donts, callWhen, quiz
+// Cada caso tem: id, name, category, urgency, summary, glyph, keywords
+// branches (opcional), steps, childVersion, babyVersion, donts, callWhen, quiz
 
 const CASES = [
   {
@@ -55,6 +55,76 @@ const CASES = [
         hint: "Pare apenas se: a vítima reagir, chegar o SAMU, ou um DEA for instalado."
       }
     ],
+    childVersion: {
+      title: "Em crianças (1 a 8 anos)",
+      steps: [
+        {
+          title: "Verifique resposta e respiração",
+          body: "Toque os ombros e chame em voz alta. Olhe o peito por 10 segundos. Em crianças, a parada geralmente é causada por falta de ar — as ventilações são muito importantes.",
+          hint: "Se estiver sozinha(o): faça 2 minutos de RCP ANTES de ligar — diferente do adulto."
+        },
+        {
+          title: "Ligue 192 — ou peça alguém",
+          body: "Aponte uma pessoa: 'Você, ligue 192 agora.' Se sozinha(o), faça 2 minutos de RCP antes de ligar e use o viva-voz ao retomar.",
+          hint: "Em criança, 2 minutos de compressões antes de ligar podem fazer a diferença — a causa é geralmente respiratória."
+        },
+        {
+          title: "Uma mão no centro do peito",
+          body: "Para crianças menores (1–3 anos): use uma mão. Para crianças maiores: use o calcanhar de uma mão, como no adulto. Centro do peito, entre os mamilos.",
+          hint: "Adapte a força ao tamanho da criança — o objetivo é comprimir 4–5 cm."
+        },
+        {
+          title: "Comprima FORTE e RÁPIDO",
+          body: "Profundidade: 4 a 5 cm (cerca de 1/3 do diâmetro do peito). Velocidade: 100 a 120 por minuto. Deixe o peito retornar totalmente entre as compressões.",
+          hint: "Não tenha medo — comprimir firme salva. Costelas de criança se recuperam."
+        },
+        {
+          title: "Ciclo 30 compressões + 2 sopros",
+          body: "Após 30 compressões: incline a cabeça, eleve o queixo, cubra boca e nariz da criança com sua boca. Dê 2 sopros suaves de 1 segundo cada, até o peito subir levemente.",
+          hint: "Em criança, as ventilações são recomendadas mesmo sem treinamento — a causa é geralmente respiratória."
+        },
+        {
+          title: "Não pare até o SAMU chegar",
+          body: "Continue o ciclo 30 compressões + 2 sopros. Reveze com outra pessoa a cada 2 minutos. Pare apenas se a criança reagir ou o SAMU assumir.",
+          hint: "Se sozinha(o) e ainda não ligou, após 2 min de RCP ligue 192 e retome imediatamente."
+        }
+      ]
+    },
+    babyVersion: {
+      title: "Em bebês (menos de 1 ano)",
+      steps: [
+        {
+          title: "Verifique resposta",
+          body: "Toque a planta do pé com firmeza e chame. Não sacuda. Se não reage e não respira → comece a RCP imediatamente.",
+          hint: "Em bebês, a parada é quase sempre respiratória. As ventilações são essenciais."
+        },
+        {
+          title: "Ligue 192 — ou peça alguém",
+          body: "Se sozinha(o): faça 2 minutos de RCP ANTES de ligar. Aponte alguém se houver: 'Você, ligue 192 agora.' Use viva-voz ao retomar.",
+          hint: "Coloque no viva-voz para receber instruções enquanto faz a RCP."
+        },
+        {
+          title: "Posição correta",
+          body: "Deite o bebê de costas em superfície firme. Incline levemente a cabeça para trás (posição neutra). Eleve o queixo com um dedo sob o mento.",
+          hint: "Não incline demais — o pescoço do bebê é curto e pode obstruir a via aérea."
+        },
+        {
+          title: "2 dedos no centro do peito",
+          body: "Use o dedo médio e anelar logo abaixo da linha dos mamilos. Comprima 4 cm de profundidade, no ritmo de 100–120 por minuto. Deixe o peito retornar entre cada compressão.",
+          hint: "Apenas 2 dedos — force proporcional ao tamanho do bebê."
+        },
+        {
+          title: "Ciclo 30 compressões + 2 sopros",
+          body: "Após 30 compressões: cubra boca E nariz do bebê com sua boca. Dê 2 sopros suaves com as bochechas (não os pulmões inteiros) — o peito deve subir levemente.",
+          hint: "Soprar com força excessiva pode lesar os pulmões do bebê. Sopro de bochechas, suave."
+        },
+        {
+          title: "Continue sem parar",
+          body: "Mantenha o ciclo 30 compressões + 2 sopros até o SAMU chegar ou o bebê reagir. Bebês têm boa resposta à RCP imediata — não desista.",
+          hint: "A tenra idade conserva melhor as funções cerebrais. Persista."
+        }
+      ]
+    },
     donts: [
       "Não interrompa as compressões por mais de 10 segundos.",
       "Não ofereça água, comida ou remédios — a vítima está inconsciente.",
@@ -131,13 +201,39 @@ const CASES = [
         hint: "Varredura cega pode empurrar o objeto mais fundo. Só retire se ESTIVER VENDO o objeto."
       }
     ],
+    childVersion: {
+      title: "Em crianças (1 a 8 anos)",
+      steps: [
+        {
+          title: "Confirme o engasgo",
+          body: "A criança não consegue falar, tossir ou respirar? Lábios azulados? Incline-a para frente — mesma abordagem do adulto, mas com força adaptada ao tamanho.",
+          hint: "Crianças maiores de 1 ano: a técnica é a mesma do adulto, com ajuste de força."
+        },
+        {
+          title: "5 palmadas entre as omoplatas",
+          body: "Criança inclinada para frente (ajoelhe se necessário para ficar na altura dela). 5 golpes firmes entre as omoplatas com a palma aberta. Use força proporcional ao tamanho.",
+          hint: "Menos força que no adulto — adapte ao tamanho da criança."
+        },
+        {
+          title: "5 compressões abdominais (Heimlich)",
+          body: "Fique atrás da criança ajoelhada(o). Punho fechado entre umbigo e esterno. Cubra com a outra mão. Puxe para dentro e para cima, 5 vezes.",
+          hint: "Para crianças de 1–3 anos, use um punho menor e menos força."
+        },
+        {
+          title: "Alterne até o objeto sair",
+          body: "5 palmadas → 5 Heimlich → repita. Se desmaiar: deite, inicie RCP infantil (30 compressões com 1 mão + 2 ventilações) e ligue 192.",
+          hint: "Antes de cada ventilação: inspecione a boca e retire o objeto SOMENTE se estiver visível."
+        }
+      ]
+    },
     babyVersion: {
-      title: "Em bebês menores de 1 ano",
+      title: "Em bebês (menos de 1 ano)",
       steps: [
         "Apoie o bebê de bruços no seu antebraço, cabeça mais baixa que o tronco.",
         "Dê 5 tapas firmes entre as escápulas, com a palma da mão.",
         "Vire o bebê de barriga para cima e faça 5 compressões com 2 dedos no centro do peito.",
-        "Alterne 5 tapas / 5 compressões até o objeto sair ou ele desmaiar."
+        "Alterne 5 tapas / 5 compressões até o objeto sair ou ele desmaiar.",
+        "Se desmaiar: ligue 192 e inicie RCP de bebê (ver caso RCP)."
       ]
     },
     donts: [
@@ -168,6 +264,301 @@ const CASES = [
         opts: ["Sim, Heimlich normal", "Não — 5 tapas nas costas + 5 compressões no peito", "Só sacudir", "Dar água"],
         correct: 1,
         explain: "Bebês até 1 ano: 5 tapas firmes entre as escápulas + 5 compressões no peito com 2 dedos. Heimlich pode machucar órgãos."
+      }
+    ]
+  },
+
+  {
+    id: "queimaduras",
+    name: "Queimaduras",
+    category: "Emergência grave",
+    urgency: "critical",
+    glyph: "△",
+    glyphColor: "oklch(0.93 0.08 50)",
+    glyphInk: "oklch(0.4 0.15 50)",
+    summary: "Lesão da pele por calor, líquido fervente, química, eletricidade ou sol. Classificada em 1°, 2° e 3° grau.",
+    keywords: ["queimadura", "queimou", "fogo", "fervente", "óleo", "oleo", "fervida", "sol"],
+    branch: {
+      question: "Que tipo de queimadura é?",
+      hint: "Cada tipo tem manejo diferente.",
+      opts: [
+        { id: "termica", label: "Calor / fogo / líquido", icon: "🔥", goto: "passos" },
+        { id: "quimica", label: "Química / produto",      icon: "🧪", goto: "passos" },
+        { id: "eletrica",label: "Elétrica",                icon: "⚡", goto: "passos" }
+      ]
+    },
+    illoLabel: "Água corrente em queimadura — 15 a 20 minutos",
+    steps: [
+      {
+        title: "Interrompa o agente",
+        body: "Apague a chama (rolando a vítima no chão se for fogo na roupa). Tire da fonte de calor. Em queimadura química, retire roupas contaminadas usando luvas.",
+        hint: "Lema dos bombeiros: 'pare, deite, role'. Correr só atiça o fogo."
+      },
+      {
+        title: "Resfrie com água corrente",
+        body: "Água em temperatura ambiente (NÃO gelada) por 15 a 20 minutos. Isso impede a queimadura de aprofundar. Em queimadura química, lave por 20+ minutos.",
+        hint: "Gelo direto piora — congela o tecido e causa mais dano."
+      },
+      {
+        title: "Remova joias e roupas (com cuidado)",
+        body: "Tire anéis, pulseiras, relógios antes do inchaço. Roupas só se NÃO estiverem grudadas. Se grudou, corte ao redor — não puxe.",
+        hint: "Joias podem ficar 'aprisionadas' quando o membro incha."
+      },
+      {
+        title: "Cubra com pano limpo e úmido",
+        body: "Cobertura solta, sem aderir à ferida. Pano limpo, gaze ou plástico filme (PVC) funciona para transporte. Não use algodão (gruda).",
+        hint: "PVC alimentar é solução de campo aprovada por bombeiros."
+      },
+      {
+        title: "Vá ao hospital se for grande ou profunda",
+        body: "Hospital sempre para: queimaduras maiores que a palma da mão da vítima, em rosto, mãos, pés, genitais, articulações, ou de 2°/3° grau (bolhas, pele branca/preta).",
+        hint: "Use a 'regra da mão': palma da vítima ≈ 1% da superfície corporal. Em criança, qualquer queimadura = hospital."
+      }
+    ],
+    donts: [
+      "Não passe pasta de dente, manteiga, óleo, clara de ovo, café, borra ou qualquer 'remédio caseiro'.",
+      "Não estoure bolhas — elas protegem a pele em regeneração.",
+      "Não use gelo direto na pele — agrava a lesão.",
+      "Não cubra com algodão — fibras grudam na ferida.",
+      "Não jogue água em queimadura elétrica antes de cortar a energia.",
+      "Não atrase o transporte para hospital em queimaduras grandes — risco de choque hipovolêmico."
+    ],
+    callWhen: [
+      "Queimadura em rosto, mãos, pés, genitais ou articulações.",
+      "Queimaduras com bolhas grandes, pele branca ou enegrecida (2° e 3° grau).",
+      "Área queimada maior que a palma da mão da vítima.",
+      "Queimadura em criança ou idoso, mesmo pequena.",
+      "Queimadura química, elétrica ou por inalação de fumaça.",
+      "Sinais de choque: confusão, palidez, sede intensa, pulso fraco."
+    ],
+    quiz: [
+      {
+        q: "Criança queimou a mão no fogão. Você...",
+        opts: ["Passa manteiga", "Aplica gelo", "Água corrente em temperatura ambiente por 15-20 min, cobre com pano limpo, hospital", "Estoura a bolha"],
+        correct: 2,
+        explain: "Água corrente em temperatura ambiente é o tratamento de primeira linha. Hospital sempre em criança."
+      },
+      {
+        q: "Bolha grande se formou. O que fazer?",
+        opts: ["Estourar com agulha esterilizada", "Cortar a pele", "Deixar intacta, cobrir e ir ao hospital", "Passar álcool"],
+        correct: 2,
+        explain: "Bolha intacta é proteção biológica. Estourar é porta de entrada para infecção."
+      }
+    ]
+  },
+
+  {
+    id: "desmaio",
+    name: "Desmaio",
+    category: "Crise circulatória",
+    urgency: "critical",
+    glyph: "○",
+    glyphColor: "var(--blue-soft)",
+    glyphInk: "var(--blue-ink)",
+    summary: "Perda breve de consciência por queda de pressão. A pessoa cai, fica pálida e recupera em segundos a poucos minutos.",
+    keywords: ["desmaio", "desmaiou", "pressão", "pressao", "tontura", "vertigem"],
+    illoLabel: "Elevação das pernas após desmaio",
+    steps: [
+      {
+        title: "Confirme que é desmaio",
+        body: "Pessoa cai, fica pálida, suada, fria. Responde após segundos. Se não responde em até 1 minuto ou não respira → trate como parada cardíaca (ir para o caso de RCP).",
+        hint: "Desmaio típico dura segundos. Mais que isso já não é mais um simples desmaio."
+      },
+      {
+        title: "Deite a vítima de costas",
+        body: "Mantenha no chão, em local seguro. Não tente sentá-la imediatamente. Afrouxe roupa apertada (gola, cinto, sutiã).",
+        hint: "Sentar antes da hora faz desmaiar de novo — espere a coloração voltar."
+      },
+      {
+        title: "Eleve as pernas",
+        body: "Ponha as pernas a uns 30 cm do chão (use almofadas, cadeira). Isso devolve sangue ao cérebro. Mantenha por 1 a 2 minutos.",
+        hint: "Esta é a manobra mais eficaz no desmaio comum (vasovagal)."
+      },
+      {
+        title: "Ventile o ambiente",
+        body: "Abra janelas, peça espaço (gente em volta atrapalha). Ar fresco no rosto ajuda. Não jogue água — só molhe levemente a testa se necessário.",
+        hint: "Movimento de leque é melhor que jogar copo de água."
+      },
+      {
+        title: "Recuperação gradual",
+        body: "Quando responder, ofereça pequenos goles de água OU água com açúcar se houver suspeita de hipoglicemia. Deixe sentada por 5 a 10 minutos antes de levantar.",
+        hint: "Levantar rápido = novo desmaio garantido."
+      }
+    ],
+    donts: [
+      "Não sente nem levante a vítima rapidamente.",
+      "Não jogue água gelada no rosto — pode causar arritmia.",
+      "Não dê tapas para 'acordar'.",
+      "Não force líquidos antes da pessoa recuperar consciência total.",
+      "Não permita que volte a se levantar sem repouso prévio."
+    ],
+    callWhen: [
+      "Desmaio dura mais de 1 minuto.",
+      "Vítima não recupera consciência por completo.",
+      "Houve dor no peito, palpitações, falta de ar antes do desmaio.",
+      "Desmaio em gestante, idoso ou pessoa com doença cardíaca.",
+      "Lesão por queda (cabeça, fratura).",
+      "Desmaios repetidos no mesmo dia."
+    ],
+    quiz: [
+      {
+        q: "Pessoa desmaiou. Posição correta?",
+        opts: ["Sentada com cabeça entre joelhos", "Em pé encostada na parede", "Deitada de costas com pernas elevadas", "De lado, em silêncio"],
+        correct: 2,
+        explain: "Deitar e elevar pernas devolve sangue rapidamente ao cérebro. Sentar mantém o problema."
+      },
+      {
+        q: "Quando NÃO é só desmaio comum?",
+        opts: ["Dura mais que 1 minuto sem voltar", "Veio com dor no peito", "Houve trauma na queda", "Todas as anteriores"],
+        correct: 3,
+        explain: "Qualquer um desses sinais pede 192 e avaliação imediata."
+      }
+    ]
+  },
+
+  {
+    id: "avc",
+    name: "AVC/AVE — Derrame",
+    category: "Emergência crítica",
+    urgency: "critical",
+    glyph: "◎",
+    glyphColor: "oklch(0.93 0.04 280)",
+    glyphInk: "oklch(0.38 0.12 280)",
+    summary: "Assimetria facial, braço sem força, fala embaralhada. Cada minuto conta — ligue 192 agora.",
+    keywords: ["avc", "ave", "derrame", "acidente vascular", "cerebral", "stroke", "boca torta", "assimetria facial", "fraqueza braço", "fala embaralhada"],
+    illoLabel: "Teste SAMU — Sorrir, Braços, Falar",
+    steps: [
+      {
+        title: "Aplique o teste SAMU",
+        body: "Peça para a pessoa: (S) Sorrir — um lado da boca cai? (A) Levantar os dois braços — um cai? (M) Falar uma frase — fala enrolada ou estranha? Qualquer sinal positivo = AVC provável.",
+        hint: "Um único sinal positivo já justifica ligar 192 imediatamente. Não espere todos os três."
+      },
+      {
+        title: "Ligue 192 agora e anote a hora",
+        body: "Informe: 'Suspeita de AVC, vítima com [sinal]'. Anote o horário exato do início dos sintomas — o médico vai precisar para decidir o tratamento.",
+        hint: "Cada minuto de AVC sem tratamento = aproximadamente 2 milhões de neurônios perdidos."
+      },
+      {
+        title: "Posicione confortavelmente",
+        body: "Se consciente: sente ou deite com cabeça levemente elevada (30°). Se inconsciente mas respirando: posição lateral de segurança. Não deixe cair — quedas causam lesão adicional.",
+        hint: "Nunca force a pessoa a andar 'para ver se está bem' — pode agravar o derrame."
+      },
+      {
+        title: "Não dê nada pela boca",
+        body: "AVC pode comprometer a deglutição. Água, comida ou remédio podem ir para o pulmão. Não dê AAS (aspirina) sem orientação médica — alguns AVCs são hemorrágicos e a aspirina piora.",
+        hint: "AAS em AVC hemorrágico pode ser fatal. Só o médico pode diferenciar os tipos."
+      },
+      {
+        title: "Monitore até o SAMU chegar",
+        body: "Observe: nível de consciência, respiração, convulsões, piora dos sintomas. Anote qualquer mudança para informar à equipe. Não deixe a pessoa sozinha.",
+        hint: "Se convulsionar: proteja a cabeça, afaste objetos, não coloque nada na boca. Veja o caso 'Convulsão'."
+      }
+    ],
+    donts: [
+      "Não dê aspirina (AAS) — pode agravar AVCs hemorrágicos.",
+      "Não dê nada pela boca — risco de aspiração por dificuldade de deglutição.",
+      "Não leve de carro — o SAMU tem equipamentos que salvam vidas no trajeto.",
+      "Não espere 'melhorar sozinho' — AVC isquêmico tem janela máxima de 4h30 para tratamento.",
+      "Não deixe a pessoa dormir sem monitoramento — pode ser piora progressiva da consciência."
+    ],
+    callWhen: [
+      "192 (SAMU) imediatamente ao primeiro sinal — não espere confirmar.",
+      "A janela para tratamento com trombolítico (clot-buster) é de apenas 4h30 do início dos sintomas.",
+      "Anote a hora exata do início dos sintomas — é a informação mais importante para o médico."
+    ],
+    quiz: [
+      {
+        q: "Qual NÃO faz parte do teste SAMU de AVC?",
+        opts: ["Sorrir (assimetria facial)", "Levantar os dois braços", "Apertar a mão com força", "Falar uma frase"],
+        correct: 2,
+        explain: "SAMU: Sorrir, Braços, fala (Mudar). Apertar a mão não é parte do protocolo simplificado para leigos."
+      },
+      {
+        q: "Por que não dar aspirina em qualquer AVC?",
+        opts: ["Aumenta a pressão arterial", "Pode agravar AVCs hemorrágicos (sangramento)", "Causa alergia", "É contraindicada para idosos"],
+        correct: 1,
+        explain: "AVC pode ser isquêmico (coágulo) ou hemorrágico (sangramento). Aspirina em hemorrágico é perigosa. Só o médico decide."
+      },
+      {
+        q: "Qual a janela de tempo para tratamento eficaz do AVC isquêmico?",
+        opts: ["1 hora", "4h30 minutos", "12 horas", "24 horas"],
+        correct: 1,
+        explain: "4h30 é a janela máxima para trombolítico. Por isso ligue 192 ao primeiro sinal e anote a hora dos sintomas."
+      }
+    ]
+  },
+
+  {
+    id: "infarto",
+    name: "Infarto",
+    category: "Emergência crítica",
+    urgency: "critical",
+    glyph: "♥",
+    glyphColor: "oklch(0.96 0.035 28)",
+    glyphInk: "oklch(0.38 0.18 28)",
+    summary: "Dor forte no peito que pode irradiar para o braço esquerdo, mandíbula ou costas. Suor frio, náusea, falta de ar.",
+    keywords: ["infarto", "coração", "coracao", "dor no peito", "ataque cardiaco", "ataque cardíaco", "iam", "isquemia", "angina", "infartou"],
+    branch: {
+      question: "A vítima está consciente e respondendo?",
+      hint: "Toque os ombros e chame. Olhe se o peito se move.",
+      opts: [
+        { id: "yes", label: "Sim, está consciente", icon: "👁", goto: "passos" },
+        { id: "no",  label: "Não responde / não respira", icon: "✕", goto: "passos-grave" }
+      ]
+    },
+    "passos-grave": "A vítima não responde e não respira — pode ter entrado em parada cardíaca. Ligue 192 IMEDIATAMENTE e inicie RCP: 30 compressões fortes no centro do peito, 100–120 por minuto. Siga o caso 'Parada Cardíaca / RCP'.",
+    illoLabel: "Dor no peito irradiando para o braço",
+    steps: [
+      {
+        title: "Ligue 192 imediatamente",
+        body: "Não espere a dor passar. No infarto, cada minuto conta — artérias bloqueadas destroem músculo cardíaco de forma irreversível. Aponte alguém: 'Você, ligue 192 agora.'",
+        hint: "Informe: 'Possível infarto, vítima com dor no peito.' O SAMU chega com o equipamento certo."
+      },
+      {
+        title: "Sente ou deite a vítima",
+        body: "Posição que exige menos esforço ao coração: sentada reclinada ou deitada com cabeça levemente elevada. Não permita que a vítima ande — qualquer esforço aumenta a demanda cardíaca.",
+        hint: "Afrouxe gravata, cinto e roupas apertadas no pescoço e no peito."
+      },
+      {
+        title: "Não dê AAS (Aspirina) por conta própria",
+        body: "Embora aspirina seja usada no infarto, a dose e o momento são decisão médica. Se a pessoa já toma e tem orientação do médico, siga. Do contrário, aguarde o SAMU.",
+        hint: "Dor no peito pode ter várias causas — só o médico confirma o infarto e decide o tratamento."
+      },
+      {
+        title: "Monitore e acalme",
+        body: "Fique perto, fale com calma. Observe: lábios azulados, confusão, perda de consciência → inicie RCP. Não deixe a vítima sozinha.",
+        hint: "Ansiedade aumenta a frequência cardíaca. Ambiente calmo reduz o dano ao coração."
+      },
+      {
+        title: "Se a vítima desmaiar e parar de respirar: RCP",
+        body: "Infarto pode evoluir para parada cardíaca a qualquer momento. Se não responde e não respira → 30 compressões no centro do peito, FORTE e RÁPIDO, 100–120 por minuto.",
+        hint: "Não tenha medo de iniciar RCP — é o que salva quando o coração para."
+      }
+    ],
+    donts: [
+      "Não deixe a vítima andar ou se esforçar — qualquer atividade piora o quadro.",
+      "Não dê água, comida ou remédios sem orientação médica.",
+      "Não minimize a dor — 'aguentar um pouco' custa músculo cardíaco.",
+      "Não leve de carro se o SAMU pode chegar — o trajeto sem suporte pode ser fatal.",
+      "Não espere a dor passar sozinha — no infarto, a janela de tratamento é de horas."
+    ],
+    callWhen: [
+      "Imediatamente ao primeiro sinal: dor no peito + suor frio, náusea ou dor no braço/mandíbula.",
+      "Cada minuto de artéria bloqueada = mais músculo cardíaco perdido de forma irreversível.",
+      "Hospitais com hemodinâmica (cateterismo) podem desobstruir a artéria em minutos com o tratamento certo."
+    ],
+    quiz: [
+      {
+        q: "Dor no peito há 10 minutos, suor frio, braço esquerdo pesado. O que fazer primeiro?",
+        opts: ["Esperar mais para ver se piora", "Tomar dois AAS por conta", "Ligar 192 imediatamente e sentar a vítima", "Dar água com açúcar"],
+        correct: 2,
+        explain: "192 imediatamente. No infarto, cada minuto conta. Não espere a dor passar."
+      },
+      {
+        q: "Por que não dar AAS sem orientação médica no infarto?",
+        opts: ["AAS é proibido", "A dor pode ter outra causa e a dose precisa ser correta", "AAS piora qualquer dor", "AAS causa hipertensão"],
+        correct: 1,
+        explain: "Dor no peito tem várias causas. Só o médico confirma infarto e decide a dose e o momento correto de usar AAS."
       }
     ]
   },
@@ -555,7 +946,7 @@ const CASES = [
       },
       {
         title: "Queimadura com líquido quente",
-        body: "Cause da água a 60°C: queima a pele em 1 segundo. Resfrie com água corrente em temperatura ambiente por 15 a 20 min. NÃO use gelo. Não estoure bolhas. Cubra com pano limpo e leve ao hospital.",
+        body: "Causa da água a 60°C: queima a pele em 1 segundo. Resfrie com água corrente em temperatura ambiente por 15 a 20 min. NÃO use gelo. Não estoure bolhas. Cubra com pano limpo e leve ao hospital.",
         hint: "Tirou a roupa antes? Se grudou na pele, não puxe — corte ao redor."
       },
       {
@@ -601,70 +992,160 @@ const CASES = [
   },
 
   {
-    id: "desmaio",
-    name: "Desmaio",
-    category: "Crise circulatória",
-    urgency: "media",
-    glyph: "○",
+    id: "suicidio",
+    name: "Risco de suicídio",
+    category: "Saúde mental",
+    urgency: "alta",
+    glyph: "♥",
     glyphColor: "var(--blue-soft)",
     glyphInk: "var(--blue-ink)",
-    summary: "Perda breve de consciência por queda de pressão. A pessoa cai, fica pálida e recupera em segundos a poucos minutos.",
-    keywords: ["desmaio", "desmaiou", "pressão", "pressao", "tontura", "vertigem"],
-    illoLabel: "Elevação das pernas após desmaio",
+    summary: "Alguém demonstrou pensamento, plano ou tentativa de suicídio. Sua presença e escuta podem salvar uma vida. CVV: 188.",
+    keywords: ["suicídio", "suicidio", "cvv", "automutilação", "automutilacao", "ideação", "ideacao"],
+    illoLabel: "Escuta ativa — você não está sozinha(o)",
     steps: [
       {
-        title: "Confirme que é desmaio",
-        body: "Pessoa cai, fica pálida, suada, fria. Responde após segundos. Se não responde em até 1 minuto ou não respira → trate como parada cardíaca (ir para o caso de RCP).",
-        hint: "Desmaio típico dura segundos. Mais que isso já não é mais um simples desmaio."
+        title: "Leve a sério. Sempre.",
+        body: "Falar sobre suicídio NÃO 'planta a ideia' — esse é mito. Toda menção a se machucar ou morrer merece atenção. Não minimize, não julgue.",
+        hint: "Frases como 'queria sumir', 'todo mundo ia ficar melhor sem mim' são alertas."
       },
       {
-        title: "Deite a vítima de costas",
-        body: "Mantenha no chão, em local seguro. Não tente sentá-la imediatamente. Afrouxe roupa apertada (gola, cinto, sutiã).",
-        hint: "Sentar antes da hora faz desmaiar de novo — espere a coloração voltar."
+        title: "Pergunte diretamente",
+        body: "'Você está pensando em se machucar?' / 'Tem pensado em tirar a própria vida?'. A pergunta direta alivia — quem está em sofrimento muitas vezes está esperando alguém perguntar.",
+        hint: "Estudos mostram: perguntar reduz o risco, não aumenta."
       },
       {
-        title: "Eleve as pernas",
-        body: "Ponha as pernas a uns 30 cm do chão (use almofadas, cadeira). Isso devolve sangue ao cérebro. Mantenha por 1 a 2 minutos.",
-        hint: "Esta é a manobra mais eficaz no desmaio comum (vasovagal)."
+        title: "Ofereça escuta, não solução",
+        body: "Você não precisa ter resposta. Esteja presente. Ouça sem interromper. Valide: 'Isso que você está passando é muito difícil. Estou aqui com você.'",
+        hint: "Não diga 'pensa nas coisas boas' ou 'tem gente que está pior'. Acolhimento, não comparação."
       },
       {
-        title: "Ventile o ambiente",
-        body: "Abra janelas, peça espaço (gente em volta atrapalha). Ar fresco no rosto ajuda. Não jogue água — só molhe levemente a testa se necessário.",
-        hint: "Movimento de leque é melhor que jogar copo de água."
+        title: "Ligue para o CVV: 188",
+        body: "Centro de Valorização da Vida. Ligação gratuita, 24 horas, sigilo total, voluntários treinados. Disponível em todo Brasil. Pode ser por chat (cvv.org.br) também.",
+        hint: "Você pode ligar JUNTO com a pessoa, no viva-voz. Ou ligar você mesma(o) pedindo orientação."
       },
       {
-        title: "Recuperação gradual",
-        body: "Quando responder, ofereça pequenos goles de água OU água com açúcar se houver suspeita de hipoglicemia. Deixe sentada por 5 a 10 minutos antes de levantar.",
-        hint: "Levantar rápido = novo desmaio garantido."
+        title: "Em risco iminente: SAMU 192 e segurança",
+        body: "Se há plano concreto, acesso a meio (arma, medicamento, local) ou ato em curso: ligue 192. Retire o acesso (guarde remédios, armas). Não deixe a pessoa sozinha. Acompanhe ao CAPS ou pronto-socorro psiquiátrico.",
+        hint: "CAPS (Centro de Atenção Psicossocial) atende crise pelo SUS, sem agendamento."
       }
     ],
     donts: [
-      "Não sente nem levante a vítima rapidamente.",
-      "Não jogue água gelada no rosto — pode causar arritmia.",
-      "Não dê tapas para 'acordar'.",
-      "Não force líquidos antes da pessoa recuperar consciência total.",
-      "Não permita que volte a se levantar sem repouso prévio."
+      "Não minimize ('é fase', 'imagina', 'pensa nas coisas boas').",
+      "Não prometa segredo absoluto — a vida vem antes do sigilo.",
+      "Não julgue moral ou religiosamente.",
+      "Não deixe a pessoa sozinha em risco iminente.",
+      "Não interrogue sobre 'motivos' — escute o que ela quer falar.",
+      "Não argumente contra — apenas acolha e direcione para ajuda."
     ],
     callWhen: [
-      "Desmaio dura mais de 1 minuto.",
-      "Vítima não recupera consciência por completo.",
-      "Houve dor no peito, palpitações, falta de ar antes do desmaio.",
-      "Desmaio em gestante, idoso ou pessoa com doença cardíaca.",
-      "Lesão por queda (cabeça, fratura).",
-      "Desmaios repetidos no mesmo dia."
+      "CVV 188 — sempre. Escuta 24h, gratuita, sigilosa.",
+      "SAMU 192 — em tentativa em curso ou intoxicação.",
+      "Bombeiros 193 — se a pessoa está em local de risco físico imediato (alturas, etc).",
+      "CAPS local — para encaminhamento na rede pública.",
+      "Polícia 190 — apenas em risco iminente quando outros não respondem."
     ],
     quiz: [
       {
-        q: "Pessoa desmaiou. Posição correta?",
-        opts: ["Sentada com cabeça entre joelhos", "Em pé encostada na parede", "Deitada de costas com pernas elevadas", "De lado, em silêncio"],
-        correct: 2,
-        explain: "Deitar e elevar pernas devolve sangue rapidamente ao cérebro. Sentar mantém o problema."
+        q: "Amiga disse 'às vezes queria desaparecer'. Você...",
+        opts: ["Muda de assunto", "Pergunta diretamente se ela tem pensado em se machucar", "Manda piada para distrair", "Sai de fininho"],
+        correct: 1,
+        explain: "Perguntar diretamente acolhe, não 'planta a ideia'. Estudos comprovam: a pergunta direta reduz o risco."
       },
       {
-        q: "Quando NÃO é só desmaio comum?",
-        opts: ["Dura mais que 1 minuto sem voltar", "Veio com dor no peito", "Houve trauma na queda", "Todas as anteriores"],
-        correct: 3,
-        explain: "Qualquer um desses sinais pede 192 e avaliação imediata."
+        q: "Número do CVV?",
+        opts: ["192", "193", "188", "190"],
+        correct: 2,
+        explain: "188 — Centro de Valorização da Vida. 24h, gratuito, sigiloso, todo o Brasil."
+      }
+    ]
+  },
+
+  {
+    id: "afogamento",
+    name: "Afogamento",
+    category: "Emergência aquática",
+    urgency: "alta",
+    glyph: "≈",
+    glyphColor: "oklch(0.93 0.06 220)",
+    glyphInk: "oklch(0.35 0.15 225)",
+    summary: "Vítima retirada da água inconsciente ou com dificuldade respiratória grave.",
+    keywords: ["afogamento", "afogou", "se afogou", "água", "agua", "piscina", "mar", "banheira", "rio", "praia"],
+    branch: {
+      question: "A vítima saiu da água consciente e respirando?",
+      hint: "Afogamentos aparentemente leves podem deteriorar nas próximas horas.",
+      opts: [
+        { id: "consciente", label: "Sim, responde e respira", icon: "👁", goto: "consciente" },
+        { id: "grave",      label: "Não responde / não respira", icon: "✕", goto: "passos" }
+      ]
+    },
+    consciente: "Vítima consciente: aqueça-a, retire roupas molhadas e observe por pelo menos 30 minutos. Qualquer piora — tosse persistente, confusão, lábios azulados — vá ao pronto-socorro. Afogamentos leves podem deteriorar em horas.",
+    illoLabel: "Compressões em vítima de afogamento",
+    steps: [
+      {
+        title: "Retire com segurança",
+        body: "Se não for nadador treinado, não entre na água. Use corda, galho, boia ou prancha para resgatar à distância. Ligue 193 (Bombeiros) para resgate aquático.",
+        hint: "Afogados em pânico podem submerger o socorrista. Sempre use um objeto como intermediário."
+      },
+      {
+        title: "Ligue 192 imediatamente",
+        body: "Aponte alguém específico: 'Você, ligue 192 agora.' Afogamento é parada cardíaca em potencial — cada segundo conta.",
+        hint: "Se estiver sozinha(o), ligue antes de iniciar as compressões."
+      },
+      {
+        title: "Verifique respiração",
+        body: "Deite a vítima de costas em superfície firme. Incline a cabeça, eleve o queixo. Observe o peito por 10 segundos. Qualquer respiração ausente ou anormal: comece compressões.",
+        hint: "Não tente 'escorrer água' virando de lado — isso atrasa o atendimento que salva."
+      },
+      {
+        title: "Inicie compressões imediatamente",
+        body: "30 compressões fortes no centro do peito, 5–6 cm de profundidade, ritmo de 100–120 por minuto. Não interrompa. Reveze a cada 2 minutos se houver ajuda.",
+        hint: "O frio da água pode conservar o cérebro por mais tempo — não desista mesmo se parecer sem esperança."
+      },
+      {
+        title: "Aqueça a vítima",
+        body: "Remova roupas molhadas. Cubra com casaco, cobertor ou qualquer tecido seco. Hipotermia piora muito o prognóstico de afogamento.",
+        hint: "Nunca deixe a vítima no chão frio ou úmido — isolamento térmico salva."
+      }
+    ],
+    babyVersion: {
+      title: "Em bebês (< 1 ano)",
+      steps: [
+        "Retire da água imediatamente. Nunca deixe bebê sozinho perto de água, nem 30 segundos.",
+        "Deite de costas em superfície firme. Verifique respiração por 10 segundos.",
+        "Se não respira: 2 dedos (médio e anelar) no centro do peito, comprima 4 cm, ritmo de 100–120 por minuto.",
+        "Ciclo: 30 compressões + 2 sopros suaves cobrindo boca E nariz do bebê.",
+        "Ligue 192. Mantenha compressões até o SAMU chegar."
+      ]
+    },
+    donts: [
+      "Não vire de lado para 'escorrer água' — isso atrasa as compressões que salvam.",
+      "Não entre na água sem treinamento — você pode se tornar a segunda vítima.",
+      "Não abandone a vítima mesmo que pareça sem vida — o frio pode conservar funções vitais.",
+      "Não use álcool para aquecer — contrai os vasos e piora a hipotermia."
+    ],
+    callWhen: [
+      "Todo afogamento com perda de consciência — 192 imediatamente.",
+      "Vítima consciente mas com tosse persistente, confusão ou lábios azulados — pronto-socorro.",
+      "Bombeiros 193 se a vítima ainda estiver na água ou for resgate em mar/rio."
+    ],
+    quiz: [
+      {
+        q: "Primeira ação ao retirar vítima de afogamento inconsciente?",
+        opts: ["Virar de lado para escorrer água", "Verificar respiração e iniciar compressões", "Dar água quente", "Chacoalhar para acordar"],
+        correct: 1,
+        explain: "Verifique respiração e inicie compressões imediatamente. Virar de lado atrasa o atendimento que realmente salva."
+      },
+      {
+        q: "Por que não entrar na água sem treinamento?",
+        opts: ["É proibido por lei", "Você pode se tornar mais uma vítima", "A água é muito fria", "Pode assustar a vítima"],
+        correct: 1,
+        explain: "Vítimas de afogamento em pânico frequentemente submergem quem tenta salvá-las. Use objetos como intermediário."
+      },
+      {
+        q: "Afogamento aparentemente leve: o que fazer após a vítima recuperar consciência?",
+        opts: ["Liberar, está bem", "Observar 30 min e ir ao pronto-socorro se piorar", "Só ir se ficar azul", "Esperar 24h em casa"],
+        correct: 1,
+        explain: "Afogamentos leves podem deteriorar nas próximas horas. Observação ativa e pronto-socorro se houver qualquer sinal de piora."
       }
     ]
   },
@@ -747,85 +1228,6 @@ const CASES = [
   },
 
   {
-    id: "queimaduras",
-    name: "Queimaduras",
-    category: "Emergência grave",
-    urgency: "critical",
-    glyph: "△",
-    glyphColor: "oklch(0.93 0.08 50)",
-    glyphInk: "oklch(0.4 0.15 50)",
-    summary: "Lesão da pele por calor, líquido fervente, química, eletricidade ou sol. Classificada em 1°, 2° e 3° grau.",
-    keywords: ["queimadura", "queimou", "fogo", "fervente", "óleo", "oleo", "fervida", "sol"],
-    branch: {
-      question: "Que tipo de queimadura é?",
-      hint: "Cada tipo tem manejo diferente.",
-      opts: [
-        { id: "termica", label: "Calor / fogo / líquido", icon: "🔥", goto: "passos" },
-        { id: "quimica", label: "Química / produto",      icon: "🧪", goto: "passos" },
-        { id: "eletrica",label: "Elétrica",                icon: "⚡", goto: "passos" }
-      ]
-    },
-    illoLabel: "Água corrente em queimadura — 15 a 20 minutos",
-    steps: [
-      {
-        title: "Interrompa o agente",
-        body: "Apague a chama (rolando a vítima no chão se for fogo na roupa). Tire da fonte de calor. Em queimadura química, retire roupas contaminadas usando luvas.",
-        hint: "Lema dos bombeiros: 'pare, deite, role'. Correr só atiça o fogo."
-      },
-      {
-        title: "Resfrie com água corrente",
-        body: "Água em temperatura ambiente (NÃO gelada) por 15 a 20 minutos. Isso impede a queimadura de aprofundar. Em queimadura química, lave por 20+ minutos.",
-        hint: "Gelo direto piora — congela o tecido e causa mais dano."
-      },
-      {
-        title: "Remova joias e roupas (com cuidado)",
-        body: "Tire anéis, pulseiras, relógios antes do inchaço. Roupas só se NÃO estiverem grudadas. Se grudou, corte ao redor — não puxe.",
-        hint: "Joias podem ficar 'aprisionadas' quando o membro incha."
-      },
-      {
-        title: "Cubra com pano limpo e úmido",
-        body: "Cobertura solta, sem aderir à ferida. Pano limpo, gaze ou plástico filme (PVC) funciona para transporte. Não use algodão (gruda).",
-        hint: "PVC alimentar é solução de campo aprovada por bombeiros."
-      },
-      {
-        title: "Vá ao hospital se for grande ou profunda",
-        body: "Hospital sempre para: queimaduras maiores que a palma da mão da vítima, em rosto, mãos, pés, genitais, articulações, ou de 2°/3° grau (bolhas, pele branca/preta).",
-        hint: "Use a 'regra da mão': palma da vítima ≈ 1% da superfície corporal."
-      }
-    ],
-    donts: [
-      "Não passe pasta de dente, manteiga, óleo, clara de ovo, café, borra ou qualquer 'remédio caseiro'.",
-      "Não estoure bolhas — elas protegem a pele em regeneração.",
-      "Não use gelo direto na pele — agrava a lesão.",
-      "Não cubra com algodão — fibras grudam na ferida.",
-      "Não jogue água em queimadura elétrica antes de cortar a energia.",
-      "Não atrase o transporte para hospital em queimaduras grandes — risco de choque hipovolêmico."
-    ],
-    callWhen: [
-      "Queimadura em rosto, mãos, pés, genitais ou articulações.",
-      "Queimaduras com bolhas grandes, pele branca ou enegrecida (2° e 3° grau).",
-      "Área queimada maior que a palma da mão da vítima.",
-      "Queimadura em criança ou idoso, mesmo pequena.",
-      "Queimadura química, elétrica ou por inalação de fumaça.",
-      "Sinais de choque: confusão, palidez, sede intensa, pulso fraco."
-    ],
-    quiz: [
-      {
-        q: "Criança queimou a mão no fogão. Você...",
-        opts: ["Passa manteiga", "Aplica gelo", "Água corrente em temperatura ambiente por 15-20 min, cobre com pano limpo, hospital", "Estoura a bolha"],
-        correct: 2,
-        explain: "Água corrente em temperatura ambiente é o tratamento de primeira linha. Hospital sempre em criança."
-      },
-      {
-        q: "Bolha grande se formou. O que fazer?",
-        opts: ["Estourar com agulha esterilizada", "Cortar a pele", "Deixar intacta, cobrir e ir ao hospital", "Passar álcool"],
-        correct: 2,
-        explain: "Bolha intacta é proteção biológica. Estourar é porta de entrada para infecção."
-      }
-    ]
-  },
-
-  {
     id: "ansiedade",
     name: "Crise de ansiedade / Pânico",
     category: "Saúde mental",
@@ -889,237 +1291,6 @@ const CASES = [
         opts: ["4 inspirações, 7 expirações, 8 pausas", "Inspirar 4s, segurar 7s, expirar 8s", "Repetir 478 vezes", "Não importa a ordem"],
         correct: 1,
         explain: "Inspira 4 segundos pelo nariz, segura 7, expira 8 pela boca. Desacelera o sistema autônomo."
-      }
-    ]
-  },
-
-  {
-    id: "suicidio",
-    name: "Risco de suicídio",
-    category: "Saúde mental",
-    urgency: "critical",
-    glyph: "♥",
-    glyphColor: "var(--blue-soft)",
-    glyphInk: "var(--blue-ink)",
-    summary: "Alguém demonstrou pensamento, plano ou tentativa de suicídio. Sua presença e escuta podem salvar uma vida. CVV: 188.",
-    keywords: ["suicídio", "suicidio", "cvv", "automutilação", "automutilacao", "ideação", "ideacao"],
-    illoLabel: "Escuta ativa — você não está sozinha(o)",
-    steps: [
-      {
-        title: "Leve a sério. Sempre.",
-        body: "Falar sobre suicídio NÃO 'planta a ideia' — esse é mito. Toda menção a se machucar ou morrer merece atenção. Não minimize, não julgue.",
-        hint: "Frases como 'queria sumir', 'todo mundo ia ficar melhor sem mim' são alertas."
-      },
-      {
-        title: "Pergunte diretamente",
-        body: "'Você está pensando em se machucar?' / 'Tem pensado em tirar a própria vida?'. A pergunta direta alivia — quem está em sofrimento muitas vezes está esperando alguém perguntar.",
-        hint: "Estudos mostram: perguntar reduz o risco, não aumenta."
-      },
-      {
-        title: "Ofereça escuta, não solução",
-        body: "Você não precisa ter resposta. Esteja presente. Ouça sem interromper. Valide: 'Isso que você está passando é muito difícil. Estou aqui com você.'",
-        hint: "Não diga 'pensa nas coisas boas' ou 'tem gente que está pior'. Acolhimento, não comparação."
-      },
-      {
-        title: "Ligue para o CVV: 188",
-        body: "Centro de Valorização da Vida. Ligação gratuita, 24 horas, sigilo total, voluntários treinados. Disponível em todo Brasil. Pode ser por chat (cvv.org.br) também.",
-        hint: "Você pode ligar JUNTO com a pessoa, no viva-voz. Ou ligar você mesma(o) pedindo orientação."
-      },
-      {
-        title: "Em risco iminente: SAMU 192 e segurança",
-        body: "Se há plano concreto, acesso a meio (arma, medicamento, local) ou ato em curso: ligue 192. Retire o acesso (guarde remédios, armas). Não deixe a pessoa sozinha. Acompanhe ao CAPS ou pronto-socorro psiquiátrico.",
-        hint: "CAPS (Centro de Atenção Psicossocial) atende crise pelo SUS, sem agendamento."
-      }
-    ],
-    donts: [
-      "Não minimize ('é fase', 'imagina', 'pensa nas coisas boas').",
-      "Não prometa segredo absoluto — a vida vem antes do sigilo.",
-      "Não julgue moral ou religiosamente.",
-      "Não deixe a pessoa sozinha em risco iminente.",
-      "Não interrogue sobre 'motivos' — escute o que ela quer falar.",
-      "Não argumente contra — apenas acolha e direcione para ajuda."
-    ],
-    callWhen: [
-      "CVV 188 — sempre. Escuta 24h, gratuita, sigilosa.",
-      "SAMU 192 — em tentativa em curso ou intoxicação.",
-      "Bombeiros 193 — se a pessoa está em local de risco físico imediato (alturas, etc).",
-      "CAPS local — para encaminhamento na rede pública.",
-      "Polícia 190 — apenas em risco iminente quando outros não respondem."
-    ],
-    quiz: [
-      {
-        q: "Amiga disse 'às vezes queria desaparecer'. Você...",
-        opts: ["Muda de assunto", "Pergunta diretamente se ela tem pensado em se machucar", "Manda piada para distrair", "Sai de fininho"],
-        correct: 1,
-        explain: "Perguntar diretamente acolhe, não 'planta a ideia'. Estudos comprovam: a pergunta direta reduz o risco."
-      },
-      {
-        q: "Número do CVV?",
-        opts: ["192", "193", "188", "190"],
-        correct: 2,
-        explain: "188 — Centro de Valorização da Vida. 24h, gratuito, sigiloso, todo o Brasil."
-      }
-    ]
-  }
-  ,
-
-  {
-    id: "afogamento",
-    name: "Afogamento",
-    category: "Emergência crítica",
-    urgency: "critical",
-    glyph: "≈",
-    glyphColor: "oklch(0.93 0.06 220)",
-    glyphInk: "oklch(0.35 0.15 225)",
-    summary: "Vítima retirada da água inconsciente ou com dificuldade respiratória grave.",
-    keywords: ["afogamento", "afogou", "se afogou", "água", "agua", "piscina", "mar", "banheira", "rio", "praia"],
-    branch: {
-      question: "A vítima saiu da água consciente e respirando?",
-      hint: "Afogamentos aparentemente leves podem deteriorar nas próximas horas.",
-      opts: [
-        { id: "consciente", label: "Sim, responde e respira", icon: "👁", goto: "consciente" },
-        { id: "grave",      label: "Não responde / não respira", icon: "✕", goto: "passos" }
-      ]
-    },
-    consciente: "Vítima consciente: aqueça-a, retire roupas molhadas e observe por pelo menos 30 minutos. Qualquer piora — tosse persistente, confusão, lábios azulados — vá ao pronto-socorro. Afogamentos leves podem deteriorar em horas.",
-    illoLabel: "Compressões em vítima de afogamento",
-    steps: [
-      {
-        title: "Retire com segurança",
-        body: "Se não for nadador treinado, não entre na água. Use corda, galho, boia ou prancha para resgatar à distância. Ligue 193 (Bombeiros) para resgate aquático.",
-        hint: "Afogados em pânico podem submerger o socorrista. Sempre use um objeto como intermediário."
-      },
-      {
-        title: "Ligue 192 imediatamente",
-        body: "Aponte alguém específico: 'Você, ligue 192 agora.' Afogamento é parada cardíaca em potencial — cada segundo conta.",
-        hint: "Se estiver sozinha(o), ligue antes de iniciar as compressões."
-      },
-      {
-        title: "Verifique respiração",
-        body: "Deite a vítima de costas em superfície firme. Incline a cabeça, eleve o queixo. Observe o peito por 10 segundos. Qualquer respiração ausente ou anormal: comece compressões.",
-        hint: "Não tente 'escorrer água' virando de lado — isso atrasa o atendimento que salva."
-      },
-      {
-        title: "Inicie compressões imediatamente",
-        body: "30 compressões fortes no centro do peito, 5–6 cm de profundidade, ritmo de 100–120 por minuto. Não interrompa. Reveze a cada 2 minutos se houver ajuda.",
-        hint: "O frio da água pode conservar o cérebro por mais tempo — não desista mesmo se parecer sem esperança."
-      },
-      {
-        title: "Aqueça a vítima",
-        body: "Remova roupas molhadas. Cubra com casaco, cobertor ou qualquer tecido seco. Hipotermia piora muito o prognóstico de afogamento.",
-        hint: "Nunca deixe a vítima no chão frio ou úmido — isolamento térmico salva."
-      }
-    ],
-    babyVersion: {
-      title: "Em bebês (< 1 ano)",
-      steps: [
-        "Retire da água imediatamente. Nunca deixe bebê sozinho perto de água, nem 30 segundos.",
-        "Deite de costas em superfície firme. Verifique respiração por 10 segundos.",
-        "Se não respira: 2 dedos (médio e anelar) no centro do peito, comprima 4 cm, ritmo de 100–120 por minuto.",
-        "Ligue 192. Mantenha compressões até o SAMU chegar."
-      ]
-    },
-    donts: [
-      "Não vire de lado para 'escorrer água' — isso atrasa as compressões que salvam.",
-      "Não entre na água sem treinamento — você pode se tornar a segunda vítima.",
-      "Não abandone a vítima mesmo que pareça sem vida — o frio pode conservar funções vitais.",
-      "Não use álcool para aquecer — contrai os vasos e piora a hipotermia."
-    ],
-    callWhen: [
-      "Todo afogamento com perda de consciência — 192 imediatamente.",
-      "Vítima consciente mas com tosse persistente, confusão ou lábios azulados — pronto-socorro.",
-      "Bombeiros 193 se a vítima ainda estiver na água ou for resgate em mar/rio."
-    ],
-    quiz: [
-      {
-        q: "Primeira ação ao retirar vítima de afogamento inconsciente?",
-        opts: ["Virar de lado para escorrer água", "Verificar respiração e iniciar compressões", "Dar água quente", "Chacoalhar para acordar"],
-        correct: 1,
-        explain: "Verifique respiração e inicie compressões imediatamente. Virar de lado atrasa o atendimento que realmente salva."
-      },
-      {
-        q: "Por que não entrar na água sem treinamento?",
-        opts: ["É proibido por lei", "Você pode se tornar mais uma vítima", "A água é muito fria", "Pode assustar a vítima"],
-        correct: 1,
-        explain: "Vítimas de afogamento em pânico frequentemente submergem quem tenta salvá-las. Use objetos como intermediário."
-      },
-      {
-        q: "Afogamento aparentemente leve: o que fazer após a vítima recuperar consciência?",
-        opts: ["Liberar, está bem", "Observar 30 min e ir ao pronto-socorro se piorar", "Só ir se ficar azul", "Esperar 24h em casa"],
-        correct: 1,
-        explain: "Afogamentos leves podem deteriorar nas próximas horas. Observação ativa e pronto-socorro se houver qualquer sinal de piora."
-      }
-    ]
-  },
-
-  {
-    id: "avc",
-    name: "AVC — Derrame",
-    category: "Emergência crítica",
-    urgency: "critical",
-    glyph: "◎",
-    glyphColor: "oklch(0.93 0.04 280)",
-    glyphInk: "oklch(0.38 0.12 280)",
-    summary: "Assimetria facial, braço sem força, fala embaralhada. Cada minuto conta — ligue 192 agora.",
-    keywords: ["avc", "derrame", "acidente vascular", "cerebral", "stroke", "boca torta", "assimetria facial", "fraqueza braço", "fala embaralhada"],
-    illoLabel: "Teste SAMU — Sorrir, Braços, Falar",
-    steps: [
-      {
-        title: "Aplique o teste SAMU",
-        body: "Peça para a pessoa: (S) Sorrir — um lado da boca cai? (A) Levantar os dois braços — um cai? (M) Falar uma frase — fala enrolada ou estranha? Qualquer sinal positivo = AVC provável.",
-        hint: "Um único sinal positivo já justifica ligar 192 imediatamente. Não espere todos os três."
-      },
-      {
-        title: "Ligue 192 agora e anote a hora",
-        body: "Informe: 'Suspeita de AVC, vítima com [sinal]'. Anote o horário exato do início dos sintomas — o médico vai precisar para decidir o tratamento.",
-        hint: "Cada minuto de AVC sem tratamento = aproximadamente 2 milhões de neurônios perdidos."
-      },
-      {
-        title: "Posicione confortavelmente",
-        body: "Se consciente: sente ou deite com cabeça levemente elevada (30°). Se inconsciente mas respirando: posição lateral de segurança. Não deixe cair — quedas causam lesão adicional.",
-        hint: "Nunca force a pessoa a andar 'para ver se está bem' — pode agravar o derrame."
-      },
-      {
-        title: "Não dê nada pela boca",
-        body: "AVC pode comprometer a deglutição. Água, comida ou remédio podem ir para o pulmão. Não dê AAS (aspirina) sem orientação médica — alguns AVCs são hemorrágicos e a aspirina piora.",
-        hint: "AAS em AVC hemorrágico pode ser fatal. Só o médico pode diferenciar os tipos."
-      },
-      {
-        title: "Monitore até o SAMU chegar",
-        body: "Observe: nível de consciência, respiração, convulsões, piora dos sintomas. Anote qualquer mudança para informar à equipe. Não deixe a pessoa sozinha.",
-        hint: "Se convulsionar: proteja a cabeça, afaste objetos, não coloque nada na boca. Veja o caso 'Convulsão'."
-      }
-    ],
-    donts: [
-      "Não dê aspirina (AAS) — pode agravar AVCs hemorrágicos.",
-      "Não dê nada pela boca — risco de aspiração por dificuldade de deglutição.",
-      "Não leve de carro — o SAMU tem equipamentos que salvam vidas no trajeto.",
-      "Não espere 'melhorar sozinho' — AVC isquêmico tem janela máxima de 4h30 para tratamento.",
-      "Não deixe a pessoa dormir sem monitoramento — pode ser piora progressiva da consciência."
-    ],
-    callWhen: [
-      "192 (SAMU) imediatamente ao primeiro sinal — não espere confirmar.",
-      "A janela para tratamento com trombolítico (clot-buster) é de apenas 4h30 do início dos sintomas.",
-      "Anote a hora exata do início dos sintomas — é a informação mais importante para o médico."
-    ],
-    quiz: [
-      {
-        q: "Qual NÃO faz parte do teste SAMU de AVC?",
-        opts: ["Sorrir (assimetria facial)", "Levantar os dois braços", "Apertar a mão com força", "Falar uma frase"],
-        correct: 2,
-        explain: "SAMU: Sorrir, Braços, fala (mudar). Apertar a mão não é parte do protocolo simplificado para leigos."
-      },
-      {
-        q: "Por que não dar aspirina em qualquer AVC?",
-        opts: ["Aumenta a pressão arterial", "Pode agravar AVCs hemorrágicos (sangramento)", "Causa alergia", "É contraindicada para idosos"],
-        correct: 1,
-        explain: "AVC pode ser isquêmico (coágulo) ou hemorrágico (sangramento). Aspirina em hemorrágico é perigosa. Só o médico decide."
-      },
-      {
-        q: "Qual a janela de tempo para tratamento eficaz do AVC isquêmico?",
-        opts: ["1 hora", "4h30 minutos", "12 horas", "24 horas"],
-        correct: 1,
-        explain: "4h30 é a janela máxima para trombolítico. Por isso ligue 192 ao primeiro sinal e anote a hora dos sintomas."
       }
     ]
   }

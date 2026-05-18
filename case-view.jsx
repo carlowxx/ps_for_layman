@@ -97,7 +97,7 @@ function CaseView({ caseData, onBack }) {
               <span className="case-section__num">01</span>
               <h2 className="case-section__title">Passo a passo</h2>
             </div>
-            <StepList steps={c.steps} babyVersion={c.babyVersion} />
+            <StepList steps={c.steps} babyVersion={c.babyVersion} childVersion={c.childVersion} />
           </div>
 
           <div className="case-section">
@@ -131,60 +131,90 @@ function CaseView({ caseData, onBack }) {
   );
 }
 
-// ===== Step list (all steps visible) =====
-function StepList({ steps, babyVersion }) {
+// ===== Step list with patient-type selector =====
+function StepList({ steps, babyVersion, childVersion }) {
   const [checked, setChecked] = React.useState({});
+  const [who, setWho] = React.useState("adult");
+
+  const tabs = [{ id: "adult", label: "Adulto", icon: "●" }];
+  if (childVersion) tabs.push({ id: "child", label: "Criança (1–8 anos)", icon: "◉" });
+  if (babyVersion)  tabs.push({ id: "baby",  label: "Bebê (< 1 ano)",    icon: "◍" });
+
+  const activeVersion = who === "baby"  && babyVersion  ? babyVersion  :
+                        who === "child" && childVersion ? childVersion :
+                        null;
+  const activeSteps = activeVersion ? activeVersion.steps : steps;
+  const isStringSteps = activeSteps.length > 0 && typeof activeSteps[0] === "string";
 
   const toggle = (i) => setChecked(prev => ({...prev, [i]: !prev[i]}));
+  const switchWho = (id) => { setWho(id); setChecked({}); };
 
   return (
     <div>
-      <div className="step-list">
-        {steps.map((step, i) => (
-          <div className={"step-card" + (checked[i] ? " step-card--done" : "")} key={i}>
-            <div className="step-card__num">PASSO {String(i + 1).padStart(2, "0")}</div>
-            <h3 className="step-card__title">{step.title}</h3>
-            <div className="step-card__body"><p>{step.body}</p></div>
-            {step.hint && (
-              <div className="step-card__hint">
-                <Icon.Info />
-                <div>{step.hint}</div>
-              </div>
-            )}
-            <label
-              className={"check-row " + (checked[i] ? "check-row--done" : "")}
-              onClick={() => toggle(i)}
-              style={{marginTop: 16, cursor: "pointer"}}
-            >
-              <div className="check-row__box">
-                {checked[i] && <Icon.Check />}
-              </div>
-              <div className="check-row__txt">Feito — passo concluído</div>
-            </label>
+      {tabs.length > 1 && (
+        <div className="patient-tabs">
+          <div className="patient-tabs__label">Para quem é o atendimento?</div>
+          <div className="patient-tabs__row">
+            {tabs.map(t => (
+              <button
+                key={t.id}
+                className={"patient-tab" + (who === t.id ? " patient-tab--active" : "")}
+                onClick={() => switchWho(t.id)}
+              >
+                <span className="patient-tab__icon">{t.icon}</span>
+                {t.label}
+              </button>
+            ))}
           </div>
-        ))}
-      </div>
+        </div>
+      )}
 
-      {babyVersion && (
-        <div className="checklist" style={{marginTop: 24}}>
-          <div style={{display: "flex", alignItems: "center", gap: 10, marginBottom: 14}}>
-            <div style={{
-              width: 36, height: 36, background: "oklch(0.95 0.04 30)", color: "oklch(0.4 0.13 30)",
-              borderRadius: 10, display: "grid", placeItems: "center", fontSize: 18, flexShrink: 0
-            }}>◍</div>
-            <h3 className="checklist__title" style={{fontSize: 19}}>{babyVersion.title}</h3>
-          </div>
+      {who !== "adult" && activeVersion && (
+        <div className="patient-notice">
+          <span className="patient-notice__icon">{who === "baby" ? "◍" : "◉"}</span>
+          <span>{activeVersion.title}</span>
+        </div>
+      )}
+
+      {isStringSteps ? (
+        <div className="checklist">
           <div className="checklist__list">
-            {babyVersion.steps.map((s, i) => (
+            {activeSteps.map((s, i) => (
               <div key={i} className="check-row" style={{cursor: "default"}}>
                 <div style={{
                   width: 22, height: 22, borderRadius: 6, background: "var(--blue-soft)", color: "var(--blue-ink)",
                   display: "grid", placeItems: "center", fontSize: 12, fontWeight: 700, flexShrink: 0
                 }}>{i + 1}</div>
-                <div className="check-row__txt">{typeof s === "string" ? s : s.title + (s.body ? " — " + s.body : "")}</div>
+                <div className="check-row__txt">{s}</div>
               </div>
             ))}
           </div>
+        </div>
+      ) : (
+        <div className="step-list">
+          {activeSteps.map((step, i) => (
+            <div className={"step-card" + (checked[i] ? " step-card--done" : "")} key={who + "-" + i}>
+              <div className="step-card__num">PASSO {String(i + 1).padStart(2, "0")}</div>
+              <h3 className="step-card__title">{step.title}</h3>
+              <div className="step-card__body"><p>{step.body}</p></div>
+              {step.hint && (
+                <div className="step-card__hint">
+                  <Icon.Info />
+                  <div>{step.hint}</div>
+                </div>
+              )}
+              <label
+                className={"check-row " + (checked[i] ? "check-row--done" : "")}
+                onClick={() => toggle(i)}
+                style={{marginTop: 16, cursor: "pointer"}}
+              >
+                <div className="check-row__box">
+                  {checked[i] && <Icon.Check />}
+                </div>
+                <div className="check-row__txt">Feito — passo concluído</div>
+              </label>
+            </div>
+          ))}
         </div>
       )}
     </div>
@@ -372,7 +402,7 @@ function RCPTimer() {
   return (
     <div className="rcp-timer">
       <div className="rcp-timer__label">Ritmo de compressão</div>
-      <div className="rcp-timer__bpm">{BPM}</div>
+      <div className="rcp-timer__bpm">100–120</div>
       <div className="rcp-timer__bpm-suffix">compressões por minuto</div>
 
       <div className={"rcp-timer__beat " + (running ? "rcp-timer__beat--active" : "")} style={{animationDuration: interval + "ms"}}>
@@ -412,7 +442,7 @@ function RCPTimer() {
         </button>
       </div>
 
-      <div style={{marginTop: 22, padding: 14, background: "var(--surface)", borderRadius: 12, fontSize: 13, color: "var(--ink-2)", lineHeight: 1.5, textAlign: "left"}}>
+      <div style={{marginTop: 24, padding: 16, background: "var(--surface)", borderRadius: 12, fontSize: 13, color: "var(--ink-2)", lineHeight: 1.6, textAlign: "left"}}>
         <strong style={{color: "var(--ink)"}}>Como usar:</strong> Inicie e comprima no ritmo do círculo pulsante.
         Reveze com outra pessoa a cada 2 minutos (indicador "Trocar em"). Não pare até o SAMU chegar.
       </div>

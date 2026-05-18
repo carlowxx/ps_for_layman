@@ -233,12 +233,12 @@ input, textarea { font-family: inherit; color: inherit; }
 .home {
   max-width: var(--maxw);
   margin: 0 auto;
-  padding: 56px 24px 140px;
+  padding: 72px 24px 160px;
 }
 .hero {
   display: grid;
-  gap: 28px;
-  padding-bottom: 56px;
+  gap: 32px;
+  padding-bottom: 80px;
 }
 .hero__eyebrow {
   display: inline-flex;
@@ -328,7 +328,7 @@ input, textarea { font-family: inherit; color: inherit; }
   justify-content: space-between;
   align-items: flex-end;
   gap: 16px;
-  margin: 48px 0 22px;
+  margin: 72px 0 28px;
 }
 .section-head__title {
   font-size: 24px;
@@ -344,7 +344,7 @@ input, textarea { font-family: inherit; color: inherit; }
 .case-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 14px;
+  gap: 18px;
 }
 .case-card {
   background: var(--surface);
@@ -540,7 +540,7 @@ input, textarea { font-family: inherit; color: inherit; }
 .case-view {
   max-width: 860px;
   margin: 0 auto;
-  padding: 40px 24px 160px;
+  padding: 56px 24px 180px;
 }
 .crumb {
   display: flex;
@@ -651,7 +651,7 @@ input, textarea { font-family: inherit; color: inherit; }
 .step-list {
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: 36px;
 }
 
 /* ===== Step content ===== */
@@ -972,9 +972,9 @@ input, textarea { font-family: inherit; color: inherit; }
 }
 .rcp-timer__bpm {
   font-family: var(--ff-display);
-  font-size: 92px;
+  font-size: clamp(44px, 10vw, 72px);
   font-weight: 700;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.03em;
   color: var(--red-ink);
   line-height: 1;
 }
@@ -1083,10 +1083,67 @@ input, textarea { font-family: inherit; color: inherit; }
 }
 .upa-row__type { font-size: 12px; color: var(--ink-3); }
 
+/* ===== Patient type selector ===== */
+.patient-tabs {
+  margin-bottom: 28px;
+}
+.patient-tabs__label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink-3);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 10px;
+}
+.patient-tabs__row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.patient-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 2px solid var(--line);
+  background: var(--surface);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink-2);
+  cursor: pointer;
+  transition: all 0.18s;
+}
+.patient-tab__icon { font-size: 16px; }
+.patient-tab:hover:not(.patient-tab--active) {
+  border-color: var(--blue-line);
+  background: var(--blue-soft);
+  color: var(--blue-ink);
+}
+.patient-tab--active {
+  background: var(--blue);
+  color: white;
+  border-color: var(--blue);
+}
+.patient-notice {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  background: var(--blue-soft);
+  border: 1px solid var(--blue-line);
+  border-radius: var(--radius-lg);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--blue-ink);
+  margin-bottom: 24px;
+}
+.patient-notice__icon { font-size: 20px; }
+
 /* ===== Section header for case ===== */
 .case-section {
-  margin-top: 48px;
-  padding-top: 40px;
+  margin-top: 64px;
+  padding-top: 56px;
   border-top: 1px solid var(--line);
 }
 .case-section:first-child { border-top: none; padding-top: 0; margin-top: 0; }
@@ -1174,10 +1231,16 @@ input, textarea { font-family: inherit; color: inherit; }
 /* ===== Responsive ===== */
 @media (max-width: 640px) {
   .app-header__inner { padding: 0 16px; }
-  .home { padding: 32px 16px 120px; }
-  .case-view { padding: 24px 16px 140px; }
+  .home { padding: 40px 16px 120px; }
+  .case-view { padding: 28px 16px 140px; }
+  .hero { gap: 20px; padding-bottom: 48px; }
+  .hero__title { font-size: clamp(28px, 8vw, 48px); }
+  .hero__sub { font-size: 16px; }
+  .search { height: 56px; font-size: 16px; padding: 0 52px 0 18px; }
+  .section-head { margin: 48px 0 20px; }
   .step-card, .branch, .checklist, .quiz, .call-panel, .rcp-timer { padding: 20px; }
   .step-card { padding-top: 28px; }
+  .step-card__title { font-size: 20px; }
   .sos-fab { padding: 12px 16px 12px 12px; font-size: 14px; }
   .sos-fab span:not(.sos-fab__icon) { display: inline; }
   .modal { padding: 24px; }
@@ -1185,8 +1248,14 @@ input, textarea { font-family: inherit; color: inherit; }
   .case-video { border-radius: var(--radius); }
   .rcp-btn-main, .rcp-btn-pause { width: 100%; justify-content: center; }
   .rcp-timer__controls { flex-direction: column; gap: 8px; }
-  .case-section { margin-top: 36px; padding-top: 32px; }
-  .step-list { gap: 20px; }
+  .case-section { margin-top: 44px; padding-top: 36px; }
+  .step-list { gap: 24px; }
+  .patient-tabs__row { gap: 6px; }
+  .patient-tab { padding: 9px 14px; font-size: 13px; }
+  .case-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; }
+  .case-card { padding: 16px; gap: 12px; }
+  .case-card__illo { height: 88px; }
+  .case-card__name { font-size: 16px; }
 }
 
 /* selection */
