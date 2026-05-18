@@ -2,9 +2,11 @@
 function CaseView({ caseData, onBack }) {
   const c = caseData;
   const [phase, setPhase] = React.useState(c.branch ? "branch" : "content");
+  const [patientType, setPatientType] = React.useState("adult");
 
   React.useEffect(() => {
     setPhase(c.branch ? "branch" : "content");
+    setPatientType("adult");
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [c.id]);
 
@@ -81,7 +83,7 @@ function CaseView({ caseData, onBack }) {
 
       {phase === "content" && (
         <div className="case-content">
-          <CaseVideoPlayer caseData={c} />
+          <CaseVideoPlayer caseData={c} patientType={patientType} />
 
           {c.hasRCPTimer && (
             <div className="case-section">
@@ -97,7 +99,7 @@ function CaseView({ caseData, onBack }) {
               <span className="case-section__num">01</span>
               <h2 className="case-section__title">Passo a passo</h2>
             </div>
-            <StepList steps={c.steps} babyVersion={c.babyVersion} childVersion={c.childVersion} />
+            <StepList steps={c.steps} babyVersion={c.babyVersion} childVersion={c.childVersion} patientType={patientType} onPatientChange={setPatientType} />
           </div>
 
           <div className="case-section">
@@ -132,9 +134,9 @@ function CaseView({ caseData, onBack }) {
 }
 
 // ===== Step list with patient-type selector =====
-function StepList({ steps, babyVersion, childVersion }) {
+function StepList({ steps, babyVersion, childVersion, patientType, onPatientChange }) {
   const [checked, setChecked] = React.useState({});
-  const [who, setWho] = React.useState("adult");
+  const who = patientType || "adult";
 
   const tabs = [{ id: "adult", label: "Adulto", icon: "●" }];
   if (childVersion) tabs.push({ id: "child", label: "Criança (1–8 anos)", icon: "◉" });
@@ -147,7 +149,7 @@ function StepList({ steps, babyVersion, childVersion }) {
   const isStringSteps = activeSteps.length > 0 && typeof activeSteps[0] === "string";
 
   const toggle = (i) => setChecked(prev => ({...prev, [i]: !prev[i]}));
-  const switchWho = (id) => { setWho(id); setChecked({}); };
+  const switchWho = (id) => { if (onPatientChange) onPatientChange(id); setChecked({}); };
 
   return (
     <div>

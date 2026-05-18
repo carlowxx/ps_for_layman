@@ -209,19 +209,31 @@ function UPALocator() {
 }
 
 // ===== Case Video Player =====
-function CaseVideoPlayer({ caseData }) {
-  const { videoType, videoUrl, videoPoster, name } = caseData;
+function CaseVideoPlayer({ caseData, patientType }) {
+  const { videoType, videoUrl, babyVideoUrl, videoPoster, name } = caseData;
   const [loaded, setLoaded] = React.useState(false);
 
-  if (!videoType || !videoUrl) return null;
+  const activeUrl = (patientType === "baby" && babyVideoUrl) ? babyVideoUrl : videoUrl;
+
+  // Reset loaded state when video switches
+  const prevUrl = React.useRef(activeUrl);
+  React.useEffect(() => {
+    if (prevUrl.current !== activeUrl) {
+      setLoaded(false);
+      prevUrl.current = activeUrl;
+    }
+  }, [activeUrl]);
+
+  if (!videoType || !activeUrl) return null;
 
   return (
     <div className="case-video">
       {!loaded && <div className="case-video__skeleton" />}
       {videoType === "youtube" ? (
         <iframe
+          key={activeUrl}
           className={"case-video__frame" + (loaded ? " case-video__frame--loaded" : "")}
-          src={videoUrl + "?rel=0&modestbranding=1&playsinline=1"}
+          src={activeUrl + "?rel=0&modestbranding=1&playsinline=1"}
           title={(name || "") + " — tutorial em vídeo"}
           allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
           allowFullScreen
@@ -230,13 +242,14 @@ function CaseVideoPlayer({ caseData }) {
         />
       ) : (
         <video
+          key={activeUrl}
           className={"case-video__frame" + (loaded ? " case-video__frame--loaded" : "")}
           controls
           preload="metadata"
           playsInline
           poster={videoPoster}
           onLoadedMetadata={() => setLoaded(true)}
-          src={videoUrl}
+          src={activeUrl}
         />
       )}
     </div>

@@ -22,6 +22,8 @@ const CASES = [
       ]
     },
     consciente: "Se a vítima responde, está consciente — não é o caso de RCP. Coloque-a confortável, observe e ligue 192 se houver dor no peito, falta de ar ou desmaios.",
+    videoType: "youtube",
+    videoUrl: "https://www.youtube.com/embed/_lvi5LO7vrg?start=36",
     illoLabel: "Posição das mãos no centro do peito",
     steps: [
       {
@@ -178,6 +180,9 @@ const CASES = [
       ]
     },
     consciente: "Obstrução parcial — a via aérea ainda tem passagem. Incentive a vítima a tossir com força. A tosse é o mecanismo mais eficaz. Se a tosse ENFRAQUECER ou ela parar de respirar, comece os passos de emergência imediatamente.",
+    videoType: "youtube",
+    videoUrl: "https://www.youtube.com/embed/ENdkBiNY3SQ",
+    babyVideoUrl: "https://www.youtube.com/embed/hKnnSF-_cos",
     illoLabel: "Palmadas interescapulares e Heimlich",
     steps: [
       {
@@ -287,6 +292,8 @@ const CASES = [
         { id: "eletrica",label: "Elétrica",                icon: "⚡", goto: "passos" }
       ]
     },
+    videoType: "youtube",
+    videoUrl: "https://www.youtube.com/embed/z8Scj1Rveck",
     illoLabel: "Água corrente em queimadura — 15 a 20 minutos",
     steps: [
       {
@@ -357,6 +364,8 @@ const CASES = [
     glyphInk: "var(--blue-ink)",
     summary: "Perda breve de consciência por queda de pressão. A pessoa cai, fica pálida e recupera em segundos a poucos minutos.",
     keywords: ["desmaio", "desmaiou", "pressão", "pressao", "tontura", "vertigem"],
+    videoType: "youtube",
+    videoUrl: "https://www.youtube.com/embed/nZGdJwuxRiE",
     illoLabel: "Elevação das pernas após desmaio",
     steps: [
       {
@@ -426,6 +435,8 @@ const CASES = [
     glyphInk: "oklch(0.38 0.12 280)",
     summary: "Assimetria facial, braço sem força, fala embaralhada. Cada minuto conta — ligue 192 agora.",
     keywords: ["avc", "ave", "derrame", "acidente vascular", "cerebral", "stroke", "boca torta", "assimetria facial", "fraqueza braço", "fala embaralhada"],
+    videoType: "youtube",
+    videoUrl: "https://www.youtube.com/embed/FDc-RCRsJJc",
     illoLabel: "Teste SAMU — Sorrir, Braços, Falar",
     steps: [
       {
@@ -581,6 +592,8 @@ const CASES = [
         { id: "no",  label: "Não, já está livre", icon: "✓", goto: "passos" }
       ]
     },
+    videoType: "youtube",
+    videoUrl: "https://www.youtube.com/embed/YFRL6WNok3U",
     illoLabel: "Desligar disjuntor antes de tocar",
     steps: [
       {
@@ -647,6 +660,8 @@ const CASES = [
     glyphInk: "var(--red-ink)",
     summary: "Sangramento abundante que não estanca, jorra ou empapa rapidamente o tecido aplicado.",
     keywords: ["hemorragia", "sangue", "sangramento", "corte", "ferida", "estancar"],
+    videoType: "youtube",
+    videoUrl: "https://www.youtube.com/embed/gqgguKRpbQQ",
     illoLabel: "Compressão direta com pano limpo",
     steps: [
       {
@@ -714,6 +729,8 @@ const CASES = [
     glyphInk: "oklch(0.4 0.15 290)",
     summary: "A pessoa perde a consciência e tem movimentos involuntários (tremores, rigidez) que duram segundos a minutos.",
     keywords: ["convulsão", "convulsao", "epilepsia", "epileptica", "ataque", "crise"],
+    videoType: "youtube",
+    videoUrl: "https://www.youtube.com/embed/8fk2-liGO0A",
     illoLabel: "Proteção da cabeça e posição lateral",
     steps: [
       {
@@ -783,6 +800,8 @@ const CASES = [
     glyphInk: "oklch(0.35 0.13 130)",
     summary: "Picada ou mordida de cobra, escorpião, aranha, abelha, lacraia, arraia ou outros. Comum no Brasil — atenção em áreas rurais e mata.",
     keywords: ["cobra", "escorpião", "escorpiao", "aranha", "abelha", "vespa", "marimbondo", "lacraia", "arraia", "picada", "mordida", "veneno", "soro"],
+    videoType: "youtube",
+    videoUrl: "https://www.youtube.com/embed/oDR1zD1QFTc",
     illoLabel: "Imobilização do membro picado",
     steps: [
       {
